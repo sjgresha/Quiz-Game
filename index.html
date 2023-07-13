@@ -8,22 +8,26 @@
     <title>Quiz Game</title>
     </head>
     <body>
-        <div class="QuizGame">
-            <h1>Software Development Quiz</h1>
-            <p>Try answering as many questions correctly as quickly as you can!!</p>
-            <button id="start">Start</button>
-            <div id="timer">60</div>
-            <div id="quiz" style="display: none;">
-                <h2 id="questions">Questions go here</h2>
-                <div id="answers">
-                    <button class="btn" id="A">Answer 1</button>
-                    <button class="btn" id="B">Answer 2</button>
-                    <button class="btn" id="C">Answer 3</button>
-                    <button class="btn" id="D">Answer 4</button>
-                </div>
-            </div>
+        <button id="startButton">Start Quiz</button>
 
+        <div id="quiz-game" style="display: none;">
+            <h2 id="question"></h2>
+            <div id="answers"></div>
+            <div id="timer">60</div>
         </div>
-        <script src="assets/script.js"></script>
+
+        <div id="result-container" style="display: none;">
+            <h2>Your Score: <span id="score"></span></h2>
+            <input type="text" id="initials" placeholder="Enter Initials">
+            <button id="submitScore">Submit</button>
+        </div>
+
+        <a href="#" id="highscore">High Scores</a>
+
+        <div id="highscore-container" style="display: none;">
+            <h2>High Scores</h2>
+            <ul id="highscore-list"></ul>
+        </div>
+          <script src="assets/script.js"></script>
     </body>
 </html>
