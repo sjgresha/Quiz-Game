@@ -1,18 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+    <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="assets/style.css">
     <title>Quiz Game</title>
-</head>
-<body>
-    <h1>Software Development Quiz</h1>
-    <p>Try answering as many questions correctly as quickly as you can!!</p>
-    <button id="Start">Start</button>
+    </head>
+    <body>
+        <div class="QuizGame">
+            <h1>Software Development Quiz</h1>
+            <p>Try answering as many questions correctly as quickly as you can!!</p>
+            <button id="start">Start</button>
+            <div id="timer">60</div>
+            <div id="quiz" style="display: none;">
+                <h2 id="questions">Questions go here</h2>
+                <div id="answers">
+                    <button class="btn" id="A">Answer 1</button>
+                    <button class="btn" id="B">Answer 2</button>
+                    <button class="btn" id="C">Answer 3</button>
+                    <button class="btn" id="D">Answer 4</button>
+                </div>
+            </div>
 
-    <div id="questions"></div>
-    <div id="answers"></div>
-    <script src="assets/script.js"></script>
-</body>
+        </div>
+        <script src="assets/script.js"></script>
+    </body>
 </html>

@@ -1,29 +1,26 @@
-var questionEl = document.getElementById("questions");
-var answersEl = document.getElementById("answers");
-var startBtn = document.getElementById("Start");
+var startButton = document.getElementById('start');
+var quiz = document.getElementById('quiz');
+var questions = document.getElementById('questions');
+var answerBtns = document.querySelector('btn');
+var timerEl = document.getElementById('timer');
+var countdown = 60;
+var score;
+var wrongAnswers;
 
-var currentQuestionIndex = 0;
-var score = 0;
+startButton.addEventListener('click', function() {
+    quiz.style.display = 'block';
+    startButton.style.display = 'none';
+    var countdownScore = setInterval(function() {
+        countdown--;
+        timerEl.textContent = countdown;
 
-var quizEl = [
-    {
-        question: "What is my name?",
-        answers: ["Steven", "Miguel", "Jovan", "chris"],
-        correctAnswer : "Steven"
-    }
-];
+        if (countdown === 0) {
+            clearInterval(countdownScore);
+            alert('Times up');
+        }
+    }, 1000);
 
-function Questions() {
-    var currentQuestion = quizEl[currentQuestionIndex];
-    questionEl.innerText = currentQuestion.question;
-    answersEl.innerText = "";
-    
-    /*urrentQuestion.answers.forEach(element => {
-        var li = document.createElement("li");
-        li.innerText = answers;
-        answersEl.appendChild(li);
-    });*/
-}
-
-//Questions();
-startBtn.addEventListener("click", Questions);
+    answerBtns.addEventListener('click', function() {
+        questions.textContent = 'Question 2 goes here';
+    })
+});
