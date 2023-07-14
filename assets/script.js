@@ -40,6 +40,7 @@ var highscoreLink = document.getElementById('highscore');
 var highscoreContainer = document.getElementById('highscore-container');
 var highscoreList = document.getElementById('highscore-list');
 
+//This is the fuction that starts the timer and begins to show the questions
 function startQuiz() {
   startButton.style.display = 'none';
   quizGame.style.display = 'block';
@@ -48,7 +49,9 @@ function startQuiz() {
   startTimer();
 }
 
+//This function shows the questions
 function showQuestion() {
+  //this var quiz now contains the quiz index that includes questions, answers, & correct answer. it is looking at the questions within the index. 
   var quiz = quizData[currentQuestion];
   questionEl.textContent = quiz.question;
 
@@ -103,13 +106,32 @@ function submitScore() {
     highscoreItem.textContent = initials + ': ' + timeRemaining;
     highscoreList.appendChild(highscoreItem);
   }
+  //console.log(highscoreList);
+  
+  var scoreArr = JSON.parse(localStorage.getItem('HSandintials')) || [];
+  var newScoreEntry = {
+    initials: initials,
+    score: timeRemaining
+  }
+
+  scoreArr.push(newScoreEntry);
+  //scoreArr = scoreArr.concat(newScoreEntry); thought maybe this would work
+  
+  console.log(initials);
+  console.log(timeRemaining);
+  localStorage.setItem('HSandinitials', JSON.stringify(scoreArr));
+  //localStorage.setItem('highScoreTIme', JSON.stringify(timeRemaining));
 
   initialsInput.value = '';
   resultContainer.style.display = 'none';
   highscoreContainer.style.display = 'block';
+
+
+  //showHighscores();
 }
 
-function showHighscores() {
+
+/*function showHighscores() {
   quizGame.style.display = 'none';
   resultContainer.style.display = 'none';
   highscoreContainer.style.display = 'block';
@@ -121,13 +143,19 @@ function displayHighscores() {
     highscoreList.textContent = "";
     
     var highScores = JSON.parse(localStorage.getItem('highScores')) || [];
+    var highScoreContent = {
+      initials: initials,
+      score: timeRemaining
+    }
+
+    highScores.push(highScoreContent);
     
     highScores.forEach((entry) => {
         var highscoreItem = document.createElement('li');
         highscoreItem.textContent = entry.initials + ': ' + entry.score;
         highscoreList.appendChild(highscoreItem);
       });
-}
+}*/
 
 function startTimer() {
   timerInterval = setInterval(() => {
