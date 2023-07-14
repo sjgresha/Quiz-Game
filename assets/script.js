@@ -96,7 +96,7 @@ function endQuiz() {
   scoreEl.textContent = timeRemaining;
 
   submitScoreButton.addEventListener('click', submitScore);
-  highscoreLink.addEventListener('click', showHighscores);
+  //highscoreLink.addEventListener('click', showHighscores);
 }
 
 function submitScore() {
@@ -116,10 +116,15 @@ function submitScore() {
 
   scoreArr.push(newScoreEntry);
   //scoreArr = scoreArr.concat(newScoreEntry); thought maybe this would work
+  //scoreArr.push({initials: initials, score: timeRemaining});
+ 
+  console.log(scoreArr);
   
-  console.log(initials);
-  console.log(timeRemaining);
+  //console.log(initials);
+  //console.log(timeRemaining);
+  
   localStorage.setItem('HSandinitials', JSON.stringify(scoreArr));
+  
   //localStorage.setItem('highScoreTIme', JSON.stringify(timeRemaining));
 
   initialsInput.value = '';
